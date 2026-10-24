@@ -4,35 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#08090a">
+<meta name="theme-color" content="#0a0708">
 <title>CERBERUS — دویژن پارتیزان | PARTIZAN SPECIAL OPERATIONS DIVISION</title>
-<meta name="description" content="دویژن پارتیزان، دویژن تخصصی سازمان CERBERUS؛ معرفی دویژن، مأموریت‌ها، ساختار فرماندهی، واحدهای تخصصی، آموزش و آمادگی، آیین‌نامه سازمانی و استانداردهای عملیاتی.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2308090a'/%3E%3Cpolygon points='32,8 54,20 54,44 32,56 10,44 10,20' fill='none' stroke='%23b8965a' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23b8965a'/%3E%3C/svg%3E">
+<meta name="description" content="دویژن پارتیزان، یگان واکنش سریع و ضربتی سازمان CERBERUS؛ کنترل بحران در ساید منفی (شهری و حاشیه‌ای)، عملیات مشترک با ارگان‌های نظامی، خودروهای آفرود، دکترین، آموزش، آیین‌نامه و استانداردهای عملیاتی.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0708'/%3E%3Cpolygon points='32,8 54,20 54,44 32,56 10,44 10,20' fill='none' stroke='%23e63946' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23e63946'/%3E%3C/svg%3E">
 <style>
 /* ==========================================================================
    CERBERUS — PARTIZAN
-   Single-file institutional identity · Persian RTL · No external assets
+   Single-file institutional identity · Persian RTL · Red doctrine palette
    ========================================================================== */
 
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
 :root{
-  --bg:        #08090a;
-  --bg-1:      #0b0d0f;
-  --bg-2:      #101317;
-  --bg-3:      #171b20;
-  --line:      rgba(232, 222, 198, 0.075);
-  --line-2:    rgba(232, 222, 198, 0.14);
-  --line-3:    rgba(232, 222, 198, 0.24);
-  --brass:     #b8965a;
-  --brass-2:   #d4b678;
-  --brass-3:   #8a6d3a;
-  --olive:     #5d6b4d;
-  --olive-2:   #7c8a68;
-  --ivory:     #ece7db;
-  --ivory-2:   #c6c2b5;
-  --steel:     #8a8f95;
-  --steel-2:   #5a5f65;
+  --bg:        #0a0708;
+  --bg-1:      #0e0a0c;
+  --bg-2:      #140e11;
+  --bg-3:      #1b1317;
+  --line:      rgba(240, 210, 210, 0.07);
+  --line-2:    rgba(240, 210, 210, 0.14);
+  --line-3:    rgba(240, 210, 210, 0.24);
+
+  --red:       #c1121f;
+  --red-2:     #e63946;
+  --red-3:     #7d0a14;
+  --red-4:     #4a060b;
+  --red-glow:  rgba(193, 18, 31, 0.35);
+  --red-soft:  rgba(193, 18, 31, 0.08);
+
+  --ivory:     #f3ece8;
+  --ivory-2:   #c7bbb7;
+  --steel:     #8a8280;
+  --steel-2:   #5a5553;
+
   --font-fa:   'Vazirmatn','Vazir','IRANSans','Segoe UI',Tahoma,sans-serif;
   --header-h:  68px;
   --max:       1280px;
@@ -45,6 +49,8 @@ html{
   scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;
   overflow-x:clip;
+  scrollbar-color:var(--red-3) var(--bg);
+  scrollbar-width:thin;
 }
 body{
   margin:0;
@@ -62,11 +68,22 @@ a{color:inherit;text-decoration:none}
 button{font-family:inherit;font-size:inherit}
 img{max-width:100%;display:block}
 [dir="ltr"]{unicode-bidi:isolate}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* Custom scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#050303}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(var(--red-3), var(--red-4));
+  border:2px solid #050303;
+}
+::-webkit-scrollbar-thumb:hover{background:var(--red)}
+
+::selection{background:var(--red);color:#fff}
 
 .skip-link{
   position:fixed;top:8px;right:8px;z-index:200;
-  padding:10px 18px;background:var(--brass);color:#0d0f0c;
+  padding:10px 18px;background:var(--red);color:#fff;
   font-weight:700;transform:translateY(-180%);
 }
 .skip-link:focus{transform:translateY(0)}
@@ -84,21 +101,29 @@ img{max-width:100%;display:block}
    ========================================================================== */
 .topbar{
   position:sticky;top:0;z-index:100;
-  background:rgba(8,9,10,.82);
+  background:rgba(10,7,8,.82);
   -webkit-backdrop-filter:blur(20px) saturate(140%);
   backdrop-filter:blur(20px) saturate(140%);
   border-bottom:1px solid var(--line);
+}
+.topbar::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg, var(--red-3), var(--red-2), var(--red-3));
+  z-index:1;
+  pointer-events:none;
 }
 .topbar__progress{
   position:absolute;left:0;right:0;bottom:-1px;height:1px;overflow:hidden;
 }
 .topbar__progress i{
   display:block;height:100%;width:0;
-  background:linear-gradient(90deg,var(--olive-2),var(--brass));
+  background:linear-gradient(90deg,var(--red-3),var(--red-2));
+  box-shadow:0 0 10px var(--red-glow);
 }
 .topbar__inner{
   display:flex;align-items:center;justify-content:space-between;
-  gap:24px;
+  gap:18px;
   height:var(--header-h);
 }
 
@@ -108,20 +133,21 @@ img{max-width:100%;display:block}
   flex-shrink:0;
 }
 .brand__emblem{
-  width:34px;height:34px;color:var(--brass);flex-shrink:0;
+  width:34px;height:34px;color:var(--red-2);flex-shrink:0;
+  filter:drop-shadow(0 0 6px rgba(230,57,70,.35));
 }
 .brand__emblem svg{display:block;width:100%;height:100%}
 .brand__text{display:flex;flex-direction:column;line-height:1.2}
 .brand__parent{
   font-size:.6rem;letter-spacing:.28em;
-  color:var(--brass);font-weight:600;
+  color:var(--red-2);font-weight:600;
 }
 .brand__name{
   font-size:.92rem;letter-spacing:.14em;
   font-weight:700;color:var(--ivory);
 }
 .brand__sub{
-  font-size:.5rem;letter-spacing:.18em;
+  font-size:.54rem;letter-spacing:.18em;
   color:var(--steel);margin-top:2px;
 }
 
@@ -129,33 +155,36 @@ img{max-width:100%;display:block}
 .nav__link{
   position:relative;
   display:block;
-  padding:10px 11px;
-  font-size:.78rem;
+  padding:10px 9px;
+  font-size:.75rem;
   color:var(--ivory-2);
   transition:color .2s ease;
 }
 .nav__link::after{
   content:"";position:absolute;
-  bottom:4px;inset-inline:11px;height:1px;
-  background:var(--brass);
-  transform:scaleX(0);transform-origin:inline-start;
+  bottom:4px;inset-inline:9px;height:1px;
+  background:var(--red);
+  transform:scaleX(0);
+  transform-origin:right;
   transition:transform .3s ease;
 }
 .nav__link:hover{color:var(--ivory)}
 .nav__link:hover::after,
 .nav__link.is-active::after{transform:scaleX(1)}
-.nav__link.is-active{color:var(--brass-2)}
+.nav__link.is-active{color:var(--red-2)}
 
 .menu-btn{
   display:none;
   width:44px;height:44px;
   align-items:center;justify-content:center;
   background:transparent;
-  color:var(--brass);
+  color:var(--red-2);
   border:1px solid var(--line-2);
   cursor:pointer;
   flex-shrink:0;
+  transition:border-color .2s ease, box-shadow .2s ease;
 }
+.menu-btn:hover{border-color:var(--red);box-shadow:0 0 12px var(--red-glow)}
 .menu-btn__box{
   display:flex;flex-direction:column;justify-content:space-between;
   width:20px;height:14px;
@@ -168,6 +197,10 @@ img{max-width:100%;display:block}
 .menu-btn[aria-expanded="true"] .menu-btn__box span:nth-child(2){opacity:0}
 .menu-btn[aria-expanded="true"] .menu-btn__box span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
+@media (min-width:1081px) and (max-width:1340px){
+  .nav__link{padding:10px 7px;font-size:.72rem}
+  .brand__sub{display:none}
+}
 @media (max-width:1080px){
   .menu-btn{display:flex}
   .nav{
@@ -193,11 +226,11 @@ img{max-width:100%;display:block}
   .nav__link::before{
     content:attr(data-num);
     font-size:.66rem;
-    letter-spacing:.2em;
+    letter-spacing:.04em;
     color:var(--steel-2);
     font-weight:600;
   }
-  .nav__link.is-active{color:var(--brass-2)}
+  .nav__link.is-active{color:var(--red-2)}
 }
 
 /* ==========================================================================
@@ -207,19 +240,37 @@ img{max-width:100%;display:block}
   position:relative;
   padding:clamp(48px,7vw,96px) 0 0;
   overflow:hidden;
+  isolation:isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 55% 45% at 75% 28%, rgba(193,18,31,.16), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 20% 75%, rgba(193,18,31,.08), transparent 70%);
 }
 .hero__bg{
-  position:absolute;inset:0;pointer-events:none;
+  position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    linear-gradient(rgba(193,18,31,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(193,18,31,.07) 1px, transparent 1px);
   background-size:96px 96px;
   -webkit-mask-image:radial-gradient(ellipse at 70% 30%, #000 0%, transparent 75%);
   mask-image:radial-gradient(ellipse at 70% 30%, #000 0%, transparent 75%);
-  opacity:.7;
+  opacity:.9;
+}
+.hero__bg::after{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgba(193,18,31,.018) 3px 4px
+  );
+  pointer-events:none;
 }
 .hero__inner{
-  position:relative;
+  position:relative;z-index:1;
   display:grid;
   grid-template-columns:56px 1.35fr 1fr;
   gap:clamp(24px,4vw,56px);
@@ -241,20 +292,33 @@ img{max-width:100%;display:block}
   text-transform:uppercase;
 }
 .hero__rail span{display:block;white-space:nowrap}
-.hero__rail span:nth-child(2){color:var(--brass)}
+.hero__rail span:nth-child(2){color:var(--red-2);font-weight:600}
 
 /* main */
 .hero__eyebrow{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;gap:12px;
   margin-bottom:26px;
   font-size:.64rem;
   letter-spacing:.26em;
-  color:var(--brass);
+  color:var(--red-2);
   text-transform:uppercase;
 }
 .hero__eyebrow::before{
   content:"";display:block;width:36px;height:1px;
-  background:var(--brass);opacity:.7;flex-shrink:0;
+  background:var(--red);opacity:.85;flex-shrink:0;
+}
+.hero__status{
+  display:inline-block;
+  width:7px;height:7px;
+  background:var(--red-2);
+  border-radius:50%;
+  flex-shrink:0;
+  box-shadow:0 0 0 0 rgba(230,57,70,.5);
+  animation:statusPulse 2s ease-in-out infinite;
+}
+@keyframes statusPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,.5)}
+  50%{box-shadow:0 0 0 6px rgba(230,57,70,0)}
 }
 
 .hero__title{margin-bottom:22px;display:flex;flex-direction:column;gap:0}
@@ -265,33 +329,35 @@ img{max-width:100%;display:block}
   font-weight:900;
   letter-spacing:-.045em;
   color:var(--ivory);
+  text-wrap:balance;
 }
 .hero__title-en{
   display:block;
   margin-top:16px;
   font-size:clamp(.9rem,1.7vw,1.3rem);
-  letter-spacing:.5em;
+  letter-spacing:.4em;
   font-weight:400;
-  color:var(--brass);
+  color:var(--red-2);
 }
 
 .hero__lede{
-  max-width:54ch;
+  max-width:56ch;
   margin-bottom:22px;
   font-size:.96rem;
   line-height:1.9;
   color:var(--ivory-2);
+  text-wrap:pretty;
 }
 
 .hero__motto{
   display:inline-block;
   margin-bottom:28px;
   padding:10px 16px 10px 0;
-  border-right:2px solid var(--brass);
+  border-right:2px solid var(--red);
   font-size:.92rem;
   font-weight:600;
-  color:var(--brass-2);
-  letter-spacing:.01em;
+  color:var(--red-2);
+  letter-spacing:0;
 }
 
 .hero__actions{display:flex;flex-wrap:wrap;gap:12px}
@@ -301,13 +367,29 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;justify-content:center;
   position:relative;
 }
+.hero__emblem::before{
+  content:"";
+  position:absolute;inset:-10%;
+  background:radial-gradient(circle at center, rgba(193,18,31,.22), transparent 65%);
+  pointer-events:none;
+  z-index:-1;
+}
 .hero__emblem svg{
   width:100%;max-width:400px;height:auto;
+  filter:drop-shadow(0 0 24px rgba(193,18,31,.25));
 }
 .emblem-center{animation:emblemPulse 3.6s ease-in-out infinite}
+.emblem-ring--outer{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:emblemSpin 120s linear infinite;
+}
 @keyframes emblemPulse{
   0%,100%{opacity:1}
   50%{opacity:.45}
+}
+@keyframes emblemSpin{
+  to{transform:rotate(360deg)}
 }
 
 /* strip */
@@ -315,28 +397,44 @@ img{max-width:100%;display:block}
   padding-inline:var(--pad-x);
   max-width:var(--max);
   margin-inline:auto;
+  position:relative;z-index:1;
 }
 .hero__strip-inner{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
+  gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--red);
 }
 .hero__cell{
   display:flex;flex-direction:column;gap:6px;
   padding:22px 20px;
+  background:var(--bg);
 }
-.hero__cell + .hero__cell{border-inline-end:1px solid var(--line)}
 .hero__cell .label{
-  font-size:.58rem;
-  letter-spacing:.24em;
+  font-size:.62rem;
+  letter-spacing:0;
   color:var(--steel);
-  text-transform:uppercase;
+  font-weight:500;
 }
 .hero__cell .value{
-  font-size:.84rem;
+  font-size:.86rem;
   font-weight:600;
   color:var(--ivory);
-  letter-spacing:.06em;
+  letter-spacing:.04em;
+}
+.hero__cell:first-child .value{color:var(--red-2)}
+
+/* hazard tape */
+.hazard-strip{
+  height:6px;
+  margin-top:0;
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--red) 0 10px,
+    #0a0708 10px 20px
+  );
+  opacity:.55;
 }
 
 /* hero entrance */
@@ -387,19 +485,15 @@ img{max-width:100%;display:block}
     order:3;
     max-width:220px;
     margin:16px auto 0;
-    opacity:.85;
+    opacity:.9;
   }
   .hero__strip-inner{grid-template-columns:repeat(2,1fr)}
-  .hero__cell:nth-child(3){border-inline-end:0}
-  .hero__cell:nth-child(3),
-  .hero__cell:nth-child(4){border-top:1px solid var(--line)}
 }
 @media (max-width:560px){
   .hero__emblem{display:none}
   .hero__title-fa{font-size:clamp(2.2rem,12vw,3.2rem)}
-  .hero__title-en{letter-spacing:.34em;font-size:.9rem}
+  .hero__title-en{letter-spacing:.3em;font-size:.9rem}
   .hero__actions .btn{flex:1 1 100%}
-  .hero__strip-inner{grid-template-columns:1fr 1fr}
   .hero__cell{padding:16px 14px}
 }
 
@@ -407,19 +501,31 @@ img{max-width:100%;display:block}
    BUTTONS
    ========================================================================== */
 .btn{
+  position:relative;
   display:inline-flex;align-items:center;justify-content:center;
   min-height:48px;padding:0 26px;
-  font-size:.84rem;font-weight:600;letter-spacing:.02em;
+  font-size:.84rem;font-weight:600;letter-spacing:0;
   border:1px solid var(--line-3);
   background:transparent;color:var(--ivory);
   cursor:pointer;
   transition:all .25s ease;
 }
 .btn--solid{
-  background:var(--brass);color:#0d0f0c;border-color:var(--brass);
+  background:var(--red);
+  color:#fff;
+  border-color:var(--red);
+  box-shadow:0 0 0 rgba(193,18,31,0);
 }
-.btn--solid:hover{background:var(--brass-2);border-color:var(--brass-2)}
-.btn--ghost:hover{border-color:var(--brass);color:var(--brass-2)}
+.btn--solid:hover{
+  background:var(--red-2);
+  border-color:var(--red-2);
+  box-shadow:0 0 24px rgba(193,18,31,.4);
+}
+.btn--ghost:hover{
+  border-color:var(--red);
+  color:var(--red-2);
+  background:var(--red-soft);
+}
 
 /* ==========================================================================
    SECTION BASE
@@ -439,26 +545,29 @@ img{max-width:100%;display:block}
   font-weight:900;
   line-height:.82;
   letter-spacing:-.06em;
-  color:var(--brass);
-  opacity:.022;
+  color:var(--red);
+  opacity:.035;
   pointer-events:none;user-select:none;
 }
 
 /* Section head */
 .sec-head{margin-bottom:clamp(48px,6vw,88px)}
 .sec-head__kicker{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;gap:12px;
   margin-bottom:22px;
-  font-size:.64rem;letter-spacing:.26em;
-  color:var(--steel);text-transform:uppercase;
+  font-size:.68rem;
+  letter-spacing:0;
+  color:var(--steel);
 }
 .sec-head__kicker .num{
-  color:var(--brass-2);font-weight:700;
-  font-size:.78rem;letter-spacing:.06em;
+  color:var(--red-2);
+  font-weight:700;
+  font-size:.82rem;
+  letter-spacing:.08em;
 }
 .sec-head__kicker .rule{
   display:block;width:26px;height:1px;
-  background:var(--brass);opacity:.7;
+  background:var(--red);opacity:.85;
 }
 .sec-head__row{
   display:grid;
@@ -470,11 +579,13 @@ img{max-width:100%;display:block}
   font-size:clamp(1.7rem,3.2vw,2.6rem);
   line-height:1.18;font-weight:800;
   letter-spacing:-.02em;color:var(--ivory);
+  text-wrap:balance;
 }
 .sec-head__lede{
   color:var(--ivory-2);font-size:.92rem;
   line-height:1.85;padding-bottom:4px;
   max-width:60ch;
+  text-wrap:pretty;
 }
 @media (max-width:820px){
   .sec-head__row{grid-template-columns:1fr}
@@ -499,6 +610,7 @@ img{max-width:100%;display:block}
   margin-bottom:20px;
   font-size:.96rem;line-height:1.95;
   color:var(--ivory-2);
+  text-wrap:pretty;
 }
 .about__main .lead{
   font-size:clamp(1.05rem,1.4vw,1.2rem);
@@ -508,7 +620,7 @@ img{max-width:100%;display:block}
   border-bottom:1px solid var(--line);
 }
 .about__meta{
-  border-top:1px solid var(--brass);
+  border-top:1px solid var(--red);
   padding-top:24px;
 }
 .about__meta dl{display:grid;gap:0;margin:0}
@@ -518,16 +630,18 @@ img{max-width:100%;display:block}
 }
 .about__meta dl > div:last-child{border-bottom:0}
 .about__meta dt{
-  font-size:.62rem;letter-spacing:.24em;
-  color:var(--steel);text-transform:uppercase;
+  font-size:.66rem;
+  letter-spacing:0;
+  color:var(--steel);
+  font-weight:500;
 }
 .about__meta dd{
   margin:0;font-size:.86rem;
   color:var(--ivory);font-weight:500;
-  letter-spacing:.02em;
+  letter-spacing:0;
 }
 .about__meta dd[dir="ltr"]{
-  font-size:.78rem;letter-spacing:.08em;color:var(--ivory-2);
+  font-size:.78rem;letter-spacing:.06em;color:var(--ivory-2);
 }
 @media (max-width:900px){
   .about{grid-template-columns:1fr}
@@ -558,20 +672,30 @@ img{max-width:100%;display:block}
   font-size:clamp(80px,10vw,130px);
   font-weight:900;line-height:1;
   letter-spacing:-.05em;
-  color:var(--brass);opacity:.05;
+  color:var(--red);opacity:.06;
   pointer-events:none;user-select:none;
   transition:opacity .3s ease;
 }
-.mission:hover::before{opacity:.1}
+.mission:hover::before{opacity:.12}
+.mission::after{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:var(--red);
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform .4s ease;
+}
+.mission:hover::after{transform:scaleX(1)}
 .mission__label{
   display:flex;align-items:center;gap:8px;
-  font-size:.62rem;letter-spacing:.24em;
-  color:var(--brass);font-weight:600;
-  text-transform:uppercase;
+  font-size:.68rem;
+  letter-spacing:0;
+  color:var(--red-2);font-weight:600;
 }
 .mission__label::before{
   content:"";display:block;width:16px;height:1px;
-  background:var(--brass);
+  background:var(--red);
 }
 .mission__title{
   font-size:clamp(1rem,1.3vw,1.12rem);
@@ -581,13 +705,13 @@ img{max-width:100%;display:block}
 .mission__text{
   font-size:.86rem;color:var(--ivory-2);
   line-height:1.8;
+  text-wrap:pretty;
 }
-.mission:nth-child(1){grid-column:span 4}
-.mission:nth-child(2){grid-column:span 2}
+.mission:nth-child(1){grid-column:span 3}
+.mission:nth-child(2){grid-column:span 3}
 .mission:nth-child(3){grid-column:span 2}
-.mission:nth-child(4){grid-column:span 4}
-.mission:nth-child(5){grid-column:span 3}
-.mission:nth-child(6){grid-column:span 3}
+.mission:nth-child(4){grid-column:span 2}
+.mission:nth-child(5){grid-column:span 2}
 @media (max-width:900px){
   .missions{grid-template-columns:repeat(2,1fr)}
   .mission{grid-column:span 1 !important}
@@ -617,8 +741,8 @@ img{max-width:100%;display:block}
 }
 .hier--sm{max-width:520px}
 .hier--parent{
-  border-color:var(--brass);
-  background:linear-gradient(180deg, rgba(184,150,90,.07), transparent);
+  border-color:var(--red);
+  background:linear-gradient(180deg, rgba(193,18,31,.08), transparent);
 }
 .hier--lead{
   border-color:var(--line-3);
@@ -628,12 +752,21 @@ img{max-width:100%;display:block}
   display:inline-flex;align-items:center;justify-content:center;
   padding:6px 12px;
   font-size:.58rem;font-weight:700;letter-spacing:.24em;
-  color:var(--brass);
+  color:var(--red-2);
   border:1px solid var(--line-2);
   white-space:nowrap;
 }
-.hier--parent .hier__badge{background:var(--brass);color:#0d0f0c;border-color:var(--brass)}
-.hier--lead .hier__badge{background:var(--olive);color:var(--ivory);border-color:var(--olive)}
+.hier--parent .hier__badge{
+  background:var(--red);
+  color:#fff;
+  border-color:var(--red);
+  box-shadow:0 0 20px rgba(193,18,31,.3);
+}
+.hier--lead .hier__badge{
+  background:var(--red-3);
+  color:var(--ivory);
+  border-color:var(--red-3);
+}
 .hier__node{display:flex;flex-direction:column;gap:4px}
 .hier__role{
   font-size:.98rem;font-weight:700;
@@ -653,8 +786,8 @@ img{max-width:100%;display:block}
   bottom:-1px;left:50%;
   width:7px;height:7px;
   margin-left:-4px;
-  border-right:1px solid var(--brass);
-  border-bottom:1px solid var(--brass);
+  border-right:1px solid var(--red);
+  border-bottom:1px solid var(--red);
   transform:rotate(45deg);
 }
 .hierarchy__note{
@@ -669,10 +802,9 @@ img{max-width:100%;display:block}
 .hierarchy__note strong{
   display:block;
   margin-bottom:6px;
-  color:var(--brass);
-  font-size:.68rem;
-  letter-spacing:.22em;
-  text-transform:uppercase;
+  color:var(--red-2);
+  font-size:.72rem;
+  letter-spacing:0;
   font-weight:600;
 }
 @media (max-width:700px){
@@ -705,15 +837,16 @@ img{max-width:100%;display:block}
   content:"";
   position:absolute;
   bottom:-1px;inset-inline:0;height:1px;
-  background:var(--brass);
-  transform:scaleX(0);transform-origin:inline-start;
+  background:var(--red);
+  transform:scaleX(0);
+  transform-origin:right;
   transition:transform .4s ease;
 }
-.unit:hover{background:rgba(184,150,90,.025);padding-inline-start:14px}
+.unit:hover{background:rgba(193,18,31,.035);padding-inline-start:14px}
 .unit:hover::after{transform:scaleX(1)}
 .unit__num{
-  font-size:.72rem;letter-spacing:.24em;
-  color:var(--brass);font-weight:700;
+  font-size:.72rem;letter-spacing:.06em;
+  color:var(--red-2);font-weight:700;
 }
 .unit__title{
   font-size:clamp(1.05rem,1.6vw,1.3rem);
@@ -723,6 +856,7 @@ img{max-width:100%;display:block}
 .unit__text{
   font-size:.88rem;color:var(--ivory-2);
   line-height:1.8;
+  text-wrap:pretty;
 }
 .unit__tag{
   font-size:.58rem;letter-spacing:.26em;
@@ -748,7 +882,7 @@ img{max-width:100%;display:block}
 }
 
 /* ==========================================================================
-   DOCTRINE / SPEC / LEDGER — legal document lists
+   DOCLIST
    ========================================================================== */
 .doclist{
   column-count:2;
@@ -765,8 +899,8 @@ img{max-width:100%;display:block}
   align-items:baseline;
 }
 .doclist__num{
-  font-size:.7rem;letter-spacing:.22em;
-  color:var(--brass);font-weight:700;
+  font-size:.72rem;letter-spacing:.06em;
+  color:var(--red-2);font-weight:700;
 }
 .doclist__title{
   font-size:.96rem;font-weight:700;
@@ -776,10 +910,155 @@ img{max-width:100%;display:block}
 .doclist__text{
   font-size:.86rem;color:var(--ivory-2);
   line-height:1.8;
+  text-wrap:pretty;
 }
 @media (max-width:820px){
   .doclist{column-count:1}
 }
+
+/* ==========================================================================
+   PRINCIPLES (5 core doctrine cards)
+   ========================================================================== */
+.principles{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--line);
+  margin-bottom:clamp(32px,4vw,56px);
+}
+.principle{
+  background:var(--bg);
+  padding:clamp(24px,3vw,36px);
+  display:flex;flex-direction:column;gap:12px;
+  transition:background .25s ease;
+}
+.principle:hover{background:var(--bg-1)}
+.principle:first-child{grid-column:1 / -1}
+.principle__num{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:1.5rem;font-weight:400;
+  color:var(--red-2);line-height:1;
+  letter-spacing:.04em;
+}
+.principle__title{
+  font-size:1.05rem;font-weight:700;
+  color:var(--ivory);
+  line-height:1.4;
+}
+.principle__text{
+  font-size:.88rem;line-height:1.85;
+  color:var(--ivory-2);
+  text-wrap:pretty;
+}
+@media (max-width:700px){
+  .principles{grid-template-columns:1fr}
+  .principle:first-child{grid-column:auto}
+}
+
+/* ==========================================================================
+   TIMELINE (operations)
+   ========================================================================== */
+.timeline{
+  position:relative;
+  display:flex;flex-direction:column;
+  max-width:880px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  inset-inline-start:18px;
+  top:8px;bottom:8px;
+  width:1px;
+  background:var(--line-2);
+}
+.tl{
+  position:relative;
+  padding:0 56px 30px 0;
+}
+.tl:last-child{padding-bottom:0}
+.tl__dot{
+  position:absolute;
+  inset-inline-start:12px;top:5px;
+  width:13px;height:13px;
+  border:1px solid var(--red);
+  border-radius:50%;
+  background:var(--bg);
+  z-index:1;
+}
+.tl__dot::after{
+  content:"";
+  position:absolute;inset:3px;
+  background:var(--red);
+  border-radius:50%;
+}
+.tl__phase{
+  font-size:.66rem;letter-spacing:.08em;
+  color:var(--red-2);font-weight:700;
+  margin-bottom:4px;
+}
+.tl__title{
+  font-size:1rem;font-weight:700;
+  color:var(--ivory);margin-bottom:6px;
+  line-height:1.4;
+}
+.tl__text{
+  font-size:.88rem;line-height:1.85;
+  color:var(--ivory-2);
+  text-wrap:pretty;
+}
+@media (max-width:600px){
+  .timeline::before{inset-inline-start:10px}
+  .tl{padding-inline-end:32px}
+  .tl__dot{inset-inline-start:4px}
+}
+
+/* ==========================================================================
+   CALLOUT
+   ========================================================================== */
+.callout{
+  margin:32px 0 0;
+  padding:20px 24px;
+  border-inline-start:2px solid var(--red);
+  background:linear-gradient(90deg, rgba(193,18,31,.07), transparent 75%);
+  font-size:.9rem;
+  line-height:1.85;
+  color:var(--ivory-2);
+  text-wrap:pretty;
+}
+.callout strong{
+  display:block;
+  margin-bottom:6px;
+  color:var(--red-2);
+  font-size:.72rem;
+  letter-spacing:.06em;
+  font-weight:700;
+}
+
+/* ==========================================================================
+   SPECS (vehicle)
+   ========================================================================== */
+.specs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  margin-bottom:36px;
+}
+.specs__cell{
+  background:var(--bg);
+  padding:20px 22px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.specs__label{
+  font-size:.62rem;color:var(--steel);
+  letter-spacing:0;font-weight:500;
+}
+.specs__value{
+  font-size:.88rem;font-weight:600;
+  color:var(--ivory);
+}
+@media (max-width:760px){.specs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.specs{grid-template-columns:1fr}}
 
 /* ==========================================================================
    TRAINING
@@ -794,16 +1073,18 @@ img{max-width:100%;display:block}
   background:var(--bg);
   padding:clamp(24px,3vw,32px);
   display:flex;flex-direction:column;gap:18px;
+  transition:background .25s ease;
 }
+.tgroup:hover{background:var(--bg-1)}
 .tgroup__head{
   padding-bottom:14px;
-  border-bottom:1px solid var(--brass);
+  border-bottom:1px solid var(--red);
   display:flex;align-items:baseline;gap:10px;
 }
 .tgroup__roman{
   font-family:Georgia,'Times New Roman',serif;
   font-size:1rem;font-weight:400;
-  color:var(--brass);line-height:1;
+  color:var(--red-2);line-height:1;
   letter-spacing:.04em;
 }
 .tgroup__title{
@@ -818,12 +1099,13 @@ img{max-width:100%;display:block}
   padding-inline-start:16px;
   font-size:.84rem;line-height:1.7;
   color:var(--ivory-2);
+  text-wrap:pretty;
 }
 .tgroup__list li::before{
   content:"";position:absolute;
   inset-inline-start:0;top:11px;
   width:6px;height:1px;
-  background:var(--brass);
+  background:var(--red);
 }
 @media (max-width:1000px){
   .training{grid-template-columns:repeat(2,1fr)}
@@ -847,20 +1129,24 @@ img{max-width:100%;display:block}
   border-bottom:1px solid var(--line);
 }
 .bylaw__note{
-  font-size:.76rem;color:var(--steel);
+  font-size:.78rem;color:var(--steel);
   max-width:58ch;line-height:1.7;
 }
 .bylaw__actions{display:flex;gap:8px;flex-wrap:wrap}
 .bylaw__btn{
   padding:8px 14px;
-  font-size:.72rem;letter-spacing:.08em;
+  font-size:.76rem;
   color:var(--ivory);
   background:transparent;
   border:1px solid var(--line-2);
   cursor:pointer;
   transition:all .2s ease;
 }
-.bylaw__btn:hover{border-color:var(--brass);color:var(--brass-2)}
+.bylaw__btn:hover{
+  border-color:var(--red);
+  color:var(--red-2);
+  box-shadow:0 0 12px var(--red-glow);
+}
 
 .chapter{border-bottom:1px solid var(--line)}
 .chapter:last-child{border-bottom:0}
@@ -880,15 +1166,17 @@ img{max-width:100%;display:block}
   border-bottom:1px solid var(--line);
 }
 .chapter__index{
-  font-size:.66rem;letter-spacing:.22em;
-  color:var(--brass);font-weight:600;
+  font-size:.7rem;
+  letter-spacing:0;
+  color:var(--red-2);font-weight:600;
 }
 .chapter__title{
   font-size:.98rem;font-weight:700;
   color:var(--ivory);
 }
 .chapter__count{
-  font-size:.68rem;letter-spacing:.18em;
+  font-size:.7rem;
+  letter-spacing:0;
   color:var(--steel);
 }
 .chapter__mark{
@@ -898,11 +1186,11 @@ img{max-width:100%;display:block}
   position:relative;
   transition:border-color .2s ease;
 }
-.chapter__head:hover .chapter__mark{border-color:var(--brass)}
+.chapter__head:hover .chapter__mark{border-color:var(--red)}
 .chapter__mark::before,
 .chapter__mark::after{
   content:"";position:absolute;
-  background:var(--brass);
+  background:var(--red);
   transition:transform .3s ease;
 }
 .chapter__mark::before{width:9px;height:1px}
@@ -923,12 +1211,14 @@ img{max-width:100%;display:block}
 }
 .article:last-child{border-bottom:0}
 .article__no{
-  font-size:.78rem;font-weight:700;
-  color:var(--brass);letter-spacing:.04em;
+  font-size:.8rem;font-weight:700;
+  color:var(--red-2);
+  letter-spacing:0;
 }
 .article__text{
   font-size:.9rem;line-height:1.9;
   color:var(--ivory-2);
+  text-wrap:pretty;
 }
 @media (max-width:720px){
   .bylaw__bar{padding:14px 16px;align-items:flex-start}
@@ -948,7 +1238,7 @@ img{max-width:100%;display:block}
 }
 
 /* ==========================================================================
-   CHARTER (ethics)
+   CHARTER
    ========================================================================== */
 .charter{
   display:grid;
@@ -960,16 +1250,19 @@ img{max-width:100%;display:block}
   background:var(--bg);
   padding:clamp(24px,3vw,32px);
   display:flex;flex-direction:column;gap:16px;
+  transition:background .25s ease;
 }
+.charter__item:hover{background:var(--bg-1)}
 .charter__num{
   font-family:Georgia,'Times New Roman',serif;
   font-size:1.7rem;font-weight:400;
-  color:var(--brass);line-height:1;
+  color:var(--red-2);line-height:1;
   letter-spacing:.06em;
 }
 .charter__text{
   font-size:.9rem;line-height:1.85;
   color:var(--ivory-2);
+  text-wrap:pretty;
 }
 @media (max-width:1000px){
   .charter{grid-template-columns:repeat(2,1fr)}
@@ -982,7 +1275,7 @@ img{max-width:100%;display:block}
    FOOTER
    ========================================================================== */
 .footer{
-  background:#050607;
+  background:#050303;
   border-top:1px solid var(--line);
 }
 .footer__inner{
@@ -992,12 +1285,13 @@ img{max-width:100%;display:block}
   padding:clamp(56px,7vw,96px) 0 clamp(36px,5vw,56px);
 }
 .footer__emblem{
-  width:32px;height:32px;color:var(--brass);margin-bottom:12px;
+  width:32px;height:32px;color:var(--red-2);margin-bottom:12px;
+  filter:drop-shadow(0 0 6px rgba(230,57,70,.35));
 }
 .footer__emblem svg{width:100%;height:100%;display:block}
 .footer__parent{
   font-size:.66rem;letter-spacing:.32em;
-  color:var(--brass);font-weight:600;
+  color:var(--red-2);font-weight:600;
   margin-bottom:4px;
 }
 .footer__name{
@@ -1012,11 +1306,13 @@ img{max-width:100%;display:block}
 .footer__desc{
   font-size:.82rem;line-height:1.8;
   color:var(--ivory-2);max-width:44ch;
+  text-wrap:pretty;
 }
 .footer__col h3{
-  font-size:.6rem;letter-spacing:.26em;
+  font-size:.68rem;
+  letter-spacing:0;
   color:var(--steel);font-weight:600;
-  margin-bottom:16px;text-transform:uppercase;
+  margin-bottom:16px;
 }
 .footer__col ul{
   display:flex;flex-direction:column;gap:10px;
@@ -1025,7 +1321,7 @@ img{max-width:100%;display:block}
   font-size:.82rem;color:var(--ivory-2);
   transition:color .2s ease;
 }
-.footer__col a:hover{color:var(--brass-2)}
+.footer__col a:hover{color:var(--red-2)}
 .footer__bottom{
   display:flex;align-items:center;justify-content:space-between;
   gap:16px;flex-wrap:wrap;
@@ -1033,8 +1329,8 @@ img{max-width:100%;display:block}
   border-top:1px solid var(--line);
 }
 .footer__bottom p{
-  font-size:.68rem;color:var(--steel-2);
-  letter-spacing:.04em;
+  font-size:.72rem;color:var(--steel-2);
+  letter-spacing:0;
 }
 @media (max-width:820px){
   .footer__inner{grid-template-columns:1fr;gap:28px}
@@ -1050,7 +1346,7 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;justify-content:center;
   background:var(--bg-2);
   border:1px solid var(--line-2);
-  color:var(--brass);
+  color:var(--red-2);
   cursor:pointer;
   opacity:0;pointer-events:none;
   transform:translateY(10px);
@@ -1059,7 +1355,11 @@ img{max-width:100%;display:block}
 .to-top.is-visible{
   opacity:1;pointer-events:auto;transform:translateY(0);
 }
-.to-top:hover{background:var(--bg-3);border-color:var(--brass)}
+.to-top:hover{
+  background:var(--bg-3);
+  border-color:var(--red);
+  box-shadow:0 0 20px var(--red-glow);
+}
 
 /* ==========================================================================
    REDUCED MOTION
@@ -1081,6 +1381,7 @@ img{max-width:100%;display:block}
     opacity:1 !important;
     transform:none !important;
   }
+  .hero__status,.emblem-ring--outer,.emblem-center{animation:none !important}
 }
 </style>
 </head>
@@ -1108,7 +1409,7 @@ img{max-width:100%;display:block}
       <span class="brand__text">
         <span class="brand__parent" dir="ltr">CERBERUS</span>
         <span class="brand__name" dir="ltr">PARTIZAN</span>
-        <span class="brand__sub" dir="ltr">SPECIAL OPERATIONS DIVISION</span>
+        <span class="brand__sub" dir="ltr">RAPID RESPONSE DIVISION</span>
       </span>
     </a>
 
@@ -1120,9 +1421,10 @@ img{max-width:100%;display:block}
         <li><a class="nav__link" href="#command" data-num="۰۳">فرماندهی</a></li>
         <li><a class="nav__link" href="#units" data-num="۰۴">واحدها</a></li>
         <li><a class="nav__link" href="#doctrine" data-num="۰۵">دکترین</a></li>
-        <li><a class="nav__link" href="#training" data-num="۰۶">آموزش</a></li>
-        <li><a class="nav__link" href="#regulations" data-num="۰۷">آیین‌نامه</a></li>
-        <li><a class="nav__link" href="#standards" data-num="۰۸">استانداردها</a></li>
+        <li><a class="nav__link" href="#operations" data-num="۰۶">عملیات</a></li>
+        <li><a class="nav__link" href="#training" data-num="۰۷">آموزش</a></li>
+        <li><a class="nav__link" href="#regulations" data-num="۰۸">آیین‌نامه</a></li>
+        <li><a class="nav__link" href="#standards" data-num="۰۹">استانداردها</a></li>
       </ul>
     </nav>
 
@@ -1148,11 +1450,14 @@ img{max-width:100%;display:block}
         <div class="hero__rail" aria-hidden="true">
           <span dir="ltr">CERBERUS</span>
           <span dir="ltr">DIV — 01</span>
-          <span dir="ltr">SPEC OPS</span>
+          <span dir="ltr">RAPID RESP.</span>
         </div>
 
         <div class="hero__main">
-          <p class="hero__eyebrow" dir="ltr">CERBERUS — PARTIZAN</p>
+          <p class="hero__eyebrow" dir="ltr">
+            <span class="hero__status" aria-hidden="true"></span>
+            CERBERUS — PARTIZAN
+          </p>
 
           <h1 class="hero__title">
             <span class="hero__title-fa">دویژن<br>پارتیزان</span>
@@ -1160,14 +1465,14 @@ img{max-width:100%;display:block}
           </h1>
 
           <p class="hero__lede">
-            دویژن تخصصی سازمان CERBERUS، با تمرکز بر تحرک میدانی، فعالیت در مناطق صعب‌العبور، هماهنگی عملیاتی و حفظ آمادگی مستمر نیروها در چارچوب ساختار فرماندهی سازمان مادر.
+            یگان واکنش سریع و ضربتی سازمان CERBERUS برای کنترل بحران در «ساید منفی» — چه درون شهر و چه در حاشیه — در هماهنگی کامل با سایر ارگان‌های نظامی، با تکیه بر خودروهای آفرود، تحرک و غافلگیری. پارتیزان نیروی اشغالگر نیست؛ مکانیزم تثبیت نظم در لحظه فروپاشی است.
           </p>
 
           <p class="hero__motto">تحرک، انضباط، وفاداری به سربروس</p>
 
           <div class="hero__actions">
             <a href="#about" class="btn btn--solid">شناخت دویژن</a>
-            <a href="#command" class="btn btn--ghost">ساختار سازمانی</a>
+            <a href="#operations" class="btn btn--ghost">نمونه یک عملیات</a>
           </div>
         </div>
 
@@ -1175,26 +1480,30 @@ img{max-width:100%;display:block}
           <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="hGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#b8965a" stop-opacity="0.16"/>
-                <stop offset="100%" stop-color="#b8965a" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#c1121f" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#c1121f" stop-opacity="0"/>
               </radialGradient>
             </defs>
             <circle cx="200" cy="200" r="180" fill="url(#hGlow)"/>
-            <circle cx="200" cy="200" r="170" fill="none" stroke="#b8965a" stroke-width=".8" opacity=".3"/>
-            <circle cx="200" cy="200" r="138" fill="none" stroke="#b8965a" stroke-width=".8" opacity=".42"/>
-            <polygon points="200,42 338,122 338,278 200,358 62,278 62,122" fill="none" stroke="#b8965a" stroke-width="1.5" opacity=".65"/>
-            <polygon points="200,110 278,155 278,245 200,290 122,245 122,155" fill="none" stroke="#5d6b4d" stroke-width="1" opacity=".85"/>
-            <line x1="200" y1="30" x2="200" y2="370" stroke="#b8965a" stroke-width=".6" opacity=".25"/>
-            <line x1="30" y1="200" x2="370" y2="200" stroke="#b8965a" stroke-width=".6" opacity=".25"/>
-            <g stroke="#b8965a" stroke-width="1.2" opacity=".7">
+            <circle class="emblem-ring emblem-ring--outer" cx="200" cy="200" r="170"
+                    fill="none" stroke="#c1121f" stroke-width=".8"
+                    stroke-dasharray="3 9" opacity=".38"/>
+            <circle cx="200" cy="200" r="138" fill="none" stroke="#c1121f" stroke-width=".8" opacity=".55"/>
+            <polygon points="200,42 338,122 338,278 200,358 62,278 62,122"
+                     fill="none" stroke="#e63946" stroke-width="1.5" opacity=".75"/>
+            <polygon points="200,110 278,155 278,245 200,290 122,245 122,155"
+                     fill="none" stroke="#c1121f" stroke-width="1" opacity=".9"/>
+            <line x1="200" y1="30" x2="200" y2="370" stroke="#e63946" stroke-width=".6" opacity=".3"/>
+            <line x1="30" y1="200" x2="370" y2="200" stroke="#e63946" stroke-width=".6" opacity=".3"/>
+            <g stroke="#e63946" stroke-width="1.2" opacity=".85">
               <line x1="200" y1="10" x2="200" y2="28"/>
               <line x1="200" y1="372" x2="200" y2="390"/>
               <line x1="10" y1="200" x2="28" y2="200"/>
               <line x1="372" y1="200" x2="390" y2="200"/>
             </g>
-            <circle cx="200" cy="200" r="24" fill="none" stroke="#b8965a" stroke-width="1" opacity=".55"/>
-            <circle cx="200" cy="200" r="6" fill="#b8965a" class="emblem-center"/>
-            <g stroke="#b8965a" stroke-width="1.4" fill="none" opacity=".8">
+            <circle cx="200" cy="200" r="24" fill="none" stroke="#e63946" stroke-width="1" opacity=".7"/>
+            <circle cx="200" cy="200" r="6" fill="#e63946" class="emblem-center"/>
+            <g stroke="#e63946" stroke-width="1.4" fill="none" opacity=".9">
               <path d="M42 42 L42 62 M42 42 L62 42"/>
               <path d="M358 42 L358 62 M358 42 L338 42"/>
               <path d="M42 358 L42 338 M42 358 L62 358"/>
@@ -1218,7 +1527,7 @@ img{max-width:100%;display:block}
         </div>
         <div class="hero__cell">
           <span class="label">حوزه عملیاتی</span>
-          <span class="value" dir="ltr">SPECIAL OPERATIONS</span>
+          <span class="value" dir="ltr">RAPID RESPONSE</span>
         </div>
         <div class="hero__cell">
           <span class="label">جایگاه سازمانی</span>
@@ -1226,6 +1535,8 @@ img{max-width:100%;display:block}
         </div>
       </div>
     </div>
+
+    <div class="hazard-strip" aria-hidden="true"></div>
   </section>
 
   <!-- =========================================================
@@ -1244,7 +1555,7 @@ img{max-width:100%;display:block}
         <div class="sec-head__row">
           <h2 class="sec-head__title">درباره دویژن پارتیزان</h2>
           <p class="sec-head__lede">
-            پارتیزان یکی از دویژن‌های تخصصی سازمان CERBERUS است؛ جایگاهی تعریف‌شده در ساختار فرماندهی سربروس، با مسئولیت‌های روشن و چارچوب اجرایی مشخص.
+            پارتیزان یگان واکنش سریع و ضربتی سازمان CERBERUS است؛ مکانیزمی برای تثبیت نظم در لحظه فروپاشی، نه یک نیروی اشغالگر.
           </p>
         </div>
       </header>
@@ -1252,13 +1563,22 @@ img{max-width:100%;display:block}
       <div class="about">
         <div class="about__main" data-reveal>
           <p class="lead">
-            دویژن پارتیزان یکی از بخش‌های تخصصی سازمان CERBERUS است که با هدف ایجاد آمادگی سازمان‌یافته، ارتقای توانمندی‌های میدانی و اجرای منظم مأموریت‌های محوله فعالیت می‌کند.
+            دویژن پارتیزان، یگان واکنش سریع و ضربتی سازمان CERBERUS است؛ نه یک نیروی اشغالگر، بلکه مکانیزمی برای تثبیت نظم در لحظه فروپاشی.
           </p>
           <p>
-            این دویژن در چارچوب ساختار فرماندهی سربروس اداره می‌شود و از طریق تقسیم مسئولیت‌ها، آموزش مستمر، استانداردسازی رویه‌ها و هماهنگی میان واحدهای تخصصی، به تحقق اهداف سازمان مادر کمک می‌کند.
+            این دویژن برای مأموریتی طراحی شده است که با نیروهای کلاسیک قابل اجرا نیست: <strong style="color:var(--ivory);font-weight:600">واکنش فوری به ناآرامی‌ها، شورش‌ها و فعالیت‌های مسلحانه در «ساید منفی»</strong>. ساید منفی یک محله یا خیابان خاص نیست؛ یک وضعیت است. وضعیتی که در آن کنترل رسمی بر یک منطقه — چه یک بلوک در مرکز شهر و چه یک شهرک در حاشیه — از دست رفته و خلأ قدرت با خشونت، غارت و درگیری مسلحانه پر شده است. پارتیزان دقیقاً در همین لحظه وارد می‌شود.
           </p>
           <p>
-            هویت پارتیزان بر انضباط، مسئولیت‌پذیری، همکاری، حفظ آمادگی و رعایت زنجیره فرماندهی استوار است. جایگاه این دویژن در نقشه سازمانی سربروس روشن است: یک بخش تخصصی با مسئولیت‌های تعریف‌شده، نه یک مجموعه مستقل.
+            برخلاف تصور رایج، وظیفه پارتیزان «تصرف» یا «پاکسازی» کامل منطقه نیست. هدف، <strong style="color:var(--ivory);font-weight:600">شکستن ساختار خشونت، جدا کردن سرکردگان از توده معترضان یا اوباش، و بازگرداندن کنترل به نهادهای مسئول</strong> است؛ و این کار را نه با صف‌آرایی و درگیری فرسایشی، بلکه با ضربه‌های سریع، غافلگیرانه و سپس عقب‌نشینی فوری انجام می‌دهد.
+          </p>
+          <p>
+            این دویژن هرگز تنها عمل نمی‌کند. پارتیزان <strong style="color:var(--ivory);font-weight:600">بازوی متحرک و ضربتی یک عملیات مشترک</strong> است؛ عملیاتی که در آن نیروی زمینی کلاسیک، پلیس، یگان‌های اطلاعاتی و سایر ارگان‌های نظامی CERBERUS هرکدام نقش خود را دارند. پارتیزان حلقه‌ای است که سرعت و غافلگیری را به این زنجیره اضافه می‌کند؛ «نیروی شکستن» است، در حالی که نیروهای دیگر «نیروی تثبیت‌کننده» پس از آن هستند.
+          </p>
+          <p>
+            سلاح تعیین‌کننده پارتیزان، <strong style="color:var(--ivory);font-weight:600">خودروی آفرود</strong> است. این خودروها برای عبور از مسیرهایی طراحی شده‌اند که نیروهای معمولی نمی‌توانند از آن‌ها استفاده کنند: کوچه‌های باریک، جاده‌های خاکی، مسیرهای صعب‌العبور حاشیه شهر و معابر پر از موانع. پارتیزان با تسلط بر این مسیرها، ابتکار تحرک را از دست عناصر خشونت‌زا می‌گیرد و می‌تواند در نقطه‌ای ظاهر شود که دشمن انتظار ندارد.
+          </p>
+          <p>
+            هویت پارتیزان بر انضباط، مسئولیت‌پذیری، همکاری، حفظ آمادگی و رعایت زنجیره فرماندهی استوار است. جایگاه این دویژن در نقشه سازمانی سربروس روشن است: <strong style="color:var(--ivory);font-weight:600">یک یگان ضربتی متحرک با مسئولیت‌های تعریف‌شده، نه یک مجموعه مستقل</strong>.
           </p>
         </div>
 
@@ -1274,11 +1594,19 @@ img{max-width:100%;display:block}
             </div>
             <div>
               <dt>عنوان کامل</dt>
-              <dd dir="ltr">PARTIZAN SPECIAL OPERATIONS DIVISION</dd>
+              <dd dir="ltr">PARTIZAN RAPID RESPONSE DIVISION</dd>
+            </div>
+            <div>
+              <dt>حوزه مأموریت</dt>
+              <dd>کنترل بحران و واکنش سریع (ساید منفی)</dd>
             </div>
             <div>
               <dt>مرجع فرماندهی</dt>
               <dd>فرماندهی کل CERBERUS</dd>
+            </div>
+            <div>
+              <dt>ماهیت عملیاتی</dt>
+              <dd>یگان ضربتی متحرک — نیروی شکستن، نه نیروی اشغالگر</dd>
             </div>
             <div>
               <dt>چارچوب فعالیت</dt>
@@ -1307,7 +1635,7 @@ img{max-width:100%;display:block}
         <div class="sec-head__row">
           <h2 class="sec-head__title">مأموریت‌ها و اهداف سازمانی</h2>
           <p class="sec-head__lede">
-            اهداف دویژن پارتیزان بر پایه آمادگی، انضباط و هماهنگی تعریف شده‌اند و در چارچوب اختیارات تعیین‌شده از سوی سازمان مادر پیگیری می‌شوند.
+            اهداف دویژن پارتیزان بر پایه واکنش سریع، تحرک، هماهنگی بین‌نیرویی و تثبیت نظم در مناطق بحرانی تعریف شده‌اند و در چارچوب اختیارات تعیین‌شده از سوی سازمان مادر پیگیری می‌شوند.
           </p>
         </div>
       </header>
@@ -1316,41 +1644,41 @@ img{max-width:100%;display:block}
 
         <article class="mission" data-num="01">
           <span class="mission__label">هدف — ۰۱</span>
-          <h3 class="mission__title">آمادگی مستمر نیروها</h3>
-          <p class="mission__text">برنامه‌ریزی و پیگیری مستمر تمرین‌ها و آموزش‌ها با هدف حفظ آمادگی فردی و تیمی در چارچوب مسئولیت‌های تعیین‌شده.</p>
+          <h3 class="mission__title">واکنش سریع به ناآرامی در «ساید منفی»</h3>
+          <p class="mission__text">پارتیزان نخستین یگانی است که به نشانه‌های فروپاشی نظم در یک منطقه — چه درون شهر و چه در حاشیه — پاسخ می‌دهد. این پاسخ نه با استقرار ایستا و ایجاد سد، بلکه با ورود سریع، ایجاد اختلال در تحرک و ارتباطات عناصر خشونت‌زا، و خروج پیش از آنکه منطقه به یک درگیری فراگیر تبدیل شود انجام می‌شود.</p>
         </article>
 
         <article class="mission" data-num="02">
           <span class="mission__label">هدف — ۰۲</span>
-          <h3 class="mission__title">تحرک در مناطق صعب‌العبور</h3>
-          <p class="mission__text">توسعه توان جابه‌جایی و تردد در مسیرهای دشوار، با رعایت اصول ایمنی و هماهنگی کامل با فرماندهی مأموریت.</p>
+          <h3 class="mission__title">اجرای عملیات مشترک با تمام ارگان‌های نظامی</h3>
+          <p class="mission__text">پارتیزان به‌صورت مستقل عمل نمی‌کند، بلکه بخشی از یک تلاش جمعی است. وظیفه آن، هماهنگی لحظه‌ای با سایر یگان‌ها برای اطمینان از اینکه ضربه‌های سریع پارتیزان با تحرک نیروهای کلاسیک، محاصره پلیس و اطلاعات سازمانی هم‌راستا باشد.</p>
         </article>
 
         <article class="mission" data-num="03">
           <span class="mission__label">هدف — ۰۳</span>
-          <h3 class="mission__title">هماهنگی میان واحدها</h3>
-          <p class="mission__text">ایجاد ارتباط منظم و تعریف‌شده میان واحدهای تخصصی برای جلوگیری از دوباره‌کاری و حفظ انسجام اجرایی.</p>
+          <h3 class="mission__title">کنترل تحرک و مسیرها با خودروهای آفرود</h3>
+          <p class="mission__text">پارتیزان با تسلط بر مسیرهایی که نیروهای معمولی از آن‌ها عاجزند — کوچه‌های باریک، جاده‌های خاکی و معابر پر از موانع — ابتکار تحرک را از دست عناصر خشونت‌زا می‌گیرد و در نقطه‌ای ظاهر می‌شود که دشمن انتظار ندارد.</p>
         </article>
 
         <article class="mission" data-num="04">
           <span class="mission__label">هدف — ۰۴</span>
-          <h3 class="mission__title">نگهداری و استانداردسازی ناوگان</h3>
-          <p class="mission__text">بررسی دوره‌ای وضعیت فنی، ثبت به‌موقع نقص‌ها و رعایت رویه‌های یکسان در استفاده و نگهداری تجهیزات و خودروها.</p>
+          <h3 class="mission__title">جداسازی سرکردگان از جمعیت</h3>
+          <p class="mission__text">در بسیاری از بحران‌های ساید منفی، عناصر مسلح از میان جمعیت یا در پناه آن‌ها عمل می‌کنند. پارتیزان با حملات دقیق و کوتاه به نقاط تجمع سرکردگان و ساختارهای فرماندهی محلی، بدون ورود به درگیری گسترده با کل جمعیت، انسجام گروه‌های مسلح را از هم می‌پاشد.</p>
         </article>
 
         <article class="mission" data-num="05">
           <span class="mission__label">هدف — ۰۵</span>
-          <h3 class="mission__title">اجرای دقیق مأموریت‌های محوله</h3>
-          <p class="mission__text">اجرای مسئولیت‌ها در چارچوب دستورهای ابلاغ‌شده و زنجیره فرماندهی سازمان مادر، با ثبت و گزارش منظم نتایج.</p>
-        </article>
-
-        <article class="mission" data-num="06">
-          <span class="mission__label">هدف — ۰۶</span>
-          <h3 class="mission__title">ارتقای مهارت و مسئولیت‌پذیری</h3>
-          <p class="mission__text">پیگیری آموزش تکمیلی، ارزیابی منصفانه عملکرد و تقویت فرهنگ مسئولیت‌پذیری در سطح فردی و تیمی.</p>
+          <h3 class="mission__title">ایجاد فضای امن برای ورود نیروهای تثبیت‌کننده</h3>
+          <p class="mission__text">پس از ضربه اولیه پارتیزان و ایجاد اختلال در آرایش عناصر مسلح، این دویژن مسیرها و نقاط ورودی را برای نیروهای کلاسیک و پلیس باز می‌کند. پارتیزان منطقه را ترک می‌کند، اما نه پیش از آنکه شرایط را برای استقرار نیروهای دیگر فراهم کرده باشد.</p>
         </article>
 
       </div>
+
+      <p class="callout" data-reveal>
+        <strong>اصل حاکم بر همه مأموریت‌ها</strong>
+        پارتیزان «برندهٔ نبرد» نیست؛ هدف او شکستن ساختار خشونت و بازگرداندن کنترل به نهادهای مسئول است — نه تصرف زمین، نه رویارویی فرسایشی با نیروی برتر.
+      </p>
+
     </div>
   </section>
 
@@ -1370,7 +1698,7 @@ img{max-width:100%;display:block}
         <div class="sec-head__row">
           <h2 class="sec-head__title">ساختار سازمانی و فرماندهی</h2>
           <p class="sec-head__lede">
-            دویژن پارتیزان در چارچوب سلسله‌مراتب فرماندهی CERBERUS فعالیت می‌کند. مسئولیت‌ها بر اساس اختیارات، جایگاه سازمانی و نیازهای اجرایی تعریف می‌شوند.
+            دویژن پارتیزان در چارچوب سلسله‌مراتب فرماندهی CERBERUS فعالیت می‌کند. ساختار آن تخت‌تر از یگان‌های کلاسیک است تا سرعت تصمیم و استقلال عمل گروه‌های کوچک را تضمین کند.
           </p>
         </div>
       </header>
@@ -1410,8 +1738,8 @@ img{max-width:100%;display:block}
         <div class="hier hier--sm">
           <span class="hier__badge">STAFF — B</span>
           <div class="hier__node">
-            <span class="hier__role">مسئول ستاد و هماهنگی</span>
-            <span class="hier__en" dir="ltr">CHIEF OF STAFF</span>
+            <span class="hier__role">مسئول ستاد و هماهنگی بین‌نیرویی</span>
+            <span class="hier__en" dir="ltr">CHIEF OF STAFF / LIAISON</span>
           </div>
         </div>
 
@@ -1430,8 +1758,8 @@ img{max-width:100%;display:block}
         <div class="hier hier--sm">
           <span class="hier__badge">GROUP LEAD</span>
           <div class="hier__node">
-            <span class="hier__role">سرپرستان گروه‌ها</span>
-            <span class="hier__en" dir="ltr">GROUP SUPERVISORS</span>
+            <span class="hier__role">سرپرستان گروه‌های ضربتی</span>
+            <span class="hier__en" dir="ltr">STRIKE GROUP SUPERVISORS</span>
           </div>
         </div>
 
@@ -1457,7 +1785,7 @@ img{max-width:100%;display:block}
 
         <p class="hierarchy__note">
           <strong>توجه</strong>
-          عناوین نمایش‌داده‌شده در این نمودار، ساختار پیشنهادی برای معرفی دویژن هستند. هرگونه عنوان رسمی، درجه یا سمت، تنها در صورت ابلاغ از سوی سازمان مادر به‌عنوان ساختار قطعی تلقی می‌شود.
+          ساختار بالا پیشنهادی است و بر اصل «استقلال عمل گروه‌های کوچک» استوار شده است. هر گروه ضربتی باید توانایی تصمیم‌گیری تاکتیکی مستقل در میدان را داشته باشد، بدون آنکه انسجام سازمانی از دست برود. هرگونه عنوان رسمی، درجه یا سمت، تنها در صورت ابلاغ از سوی سازمان مادر به‌عنوان ساختار قطعی تلقی می‌شود.
         </p>
 
       </div>
@@ -1490,36 +1818,43 @@ img{max-width:100%;display:block}
         <article class="unit">
           <span class="unit__num">۰۱</span>
           <h3 class="unit__title">واحد عملیات میدانی</h3>
-          <p class="unit__text">مسئول هماهنگی و اجرای مأموریت‌های محوله در چارچوب دستورهای فرماندهی.</p>
+          <p class="unit__text">مسئول هماهنگی و اجرای مأموریت‌های ضربتی در ساید منفی؛ ورود سریع، ضربه به نقاط حساس و عقب‌نشینی فوری در چارچوب دستورهای فرماندهی.</p>
           <span class="unit__tag" dir="ltr">FIELD OPERATIONS</span>
         </article>
 
         <article class="unit">
           <span class="unit__num">۰۲</span>
           <h3 class="unit__title">واحد تحرک و آفرود</h3>
-          <p class="unit__text">متمرکز بر رانندگی تخصصی، تردد در مسیرهای دشوار و حفظ آمادگی خودروها.</p>
+          <p class="unit__text">هستهٔ اصلی توان پارتیزان؛ رانندگی تخصصی، تردد در کوچه‌های باریک و مسیرهای صعب‌العبور، نگهداری خودروها و حفظ آمادگی ناوگان برای واکنش لحظه‌ای.</p>
           <span class="unit__tag" dir="ltr">MOBILITY &amp; OFF-ROAD</span>
         </article>
 
         <article class="unit">
           <span class="unit__num">۰۳</span>
-          <h3 class="unit__title">واحد آموزش و آمادگی</h3>
-          <p class="unit__text">مسئول برنامه‌ریزی آموزشی، تمرین‌های دوره‌ای و ارزیابی پیشرفت مهارت‌ها.</p>
-          <span class="unit__tag" dir="ltr">TRAINING &amp; READINESS</span>
+          <h3 class="unit__title">واحد اطلاعات و شناسایی</h3>
+          <p class="unit__text">گردآوری اطلاعات از وضعیت ساید منفی، شناسایی نقاط تجمع و مسیرهای تردد عناصر مسلح، و ارائه گزارش دقیق برای طراحی عملیات. بدون این واحد، هیچ ضربه‌ای قابل اجرا نیست.</p>
+          <span class="unit__tag" dir="ltr">INTELLIGENCE &amp; RECON</span>
         </article>
 
         <article class="unit">
           <span class="unit__num">۰۴</span>
-          <h3 class="unit__title">واحد پشتیبانی و لجستیک</h3>
-          <p class="unit__text">مسئول هماهنگی تجهیزات، منابع مورد نیاز و پشتیبانی اجرایی واحدها.</p>
-          <span class="unit__tag" dir="ltr">LOGISTICS</span>
+          <h3 class="unit__title">واحد آموزش و آمادگی</h3>
+          <p class="unit__text">مسئول برنامه‌ریزی آموزشی، تمرین‌های دوره‌ای، تمرین مشترک با سایر ارگان‌ها و ارزیابی پیشرفت مهارت‌های فردی و تیمی.</p>
+          <span class="unit__tag" dir="ltr">TRAINING &amp; READINESS</span>
         </article>
 
         <article class="unit">
           <span class="unit__num">۰۵</span>
-          <h3 class="unit__title">واحد ارتباطات و هماهنگی</h3>
-          <p class="unit__text">مسئول نظم ارتباطی، انتقال دقیق اطلاعات و هماهنگی میان اعضا و فرماندهان.</p>
-          <span class="unit__tag" dir="ltr">COMMUNICATIONS</span>
+          <h3 class="unit__title">واحد پشتیبانی و لجستیک</h3>
+          <p class="unit__text">مسئول هماهنگی تجهیزات، سوخت، مهمات سبک و پشتیبانی اجرایی گروه‌های ضربتی در میدان.</p>
+          <span class="unit__tag" dir="ltr">LOGISTICS</span>
+        </article>
+
+        <article class="unit">
+          <span class="unit__num">۰۶</span>
+          <h3 class="unit__title">واحد ارتباطات و هماهنگی بین‌نیرویی</h3>
+          <p class="unit__text">مسئول نظم ارتباطی، انتقال دقیق اطلاعات میان گروه‌های پارتیزان و سایر ارگان‌های نظامی، و هماهنگی لحظه‌ای در عملیات مشترک.</p>
+          <span class="unit__tag" dir="ltr">COMMUNICATIONS &amp; LIAISON</span>
         </article>
 
       </div>
@@ -1537,15 +1872,56 @@ img{max-width:100%;display:block}
         <p class="sec-head__kicker">
           <span class="num">۰۵</span>
           <span class="rule"></span>
-          <span>اصول عملکرد</span>
+          <span>دکترین عملیاتی</span>
         </p>
         <div class="sec-head__row">
-          <h2 class="sec-head__title">اصول عملکرد دویژن</h2>
+          <h2 class="sec-head__title">دکترین پارتیزانی</h2>
           <p class="sec-head__lede">
-            چارچوب رفتاری و اجرایی مورد انتظار از اعضای دویژن پارتیزان در فعالیت‌های روزمره و سازمانی.
+            پارتیزان بر پایهٔ اصول جنگ نامتقارن سازمان‌دهی شده است: پرهیز از رویارویی مستقیم با نیروی برتر، تکیه بر تحرک، غافلگیری و اطلاعات، و ضربه‌های کوتاه با عقب‌نشینی فوری.
           </p>
         </div>
       </header>
+
+      <p class="callout" data-reveal style="margin-top:0;margin-bottom:clamp(32px,4vw,56px)">
+        <strong>ماهیت جنگ نامتقارن</strong>
+        پارتیزان به‌دنبال تصرف زمین یا رویارویی مستقیم با نیروی برتر نیست؛ بلکه با تکیه بر تحرک، پنهان‌کاری، غافلگیری و اطلاعات دقیق، دشمن را فرسوده می‌کند و توان لجستیکی و فرماندهی او را مختل می‌سازد. پارتیزان «برندهٔ نبرد» نیست؛ بازندهٔ نبرد نیست و دشمن را از درون خسته می‌کند.
+      </p>
+
+      <div class="principles" data-reveal>
+
+        <article class="principle">
+          <span class="principle__num">I</span>
+          <h3 class="principle__title">تحرک، جای زره را می‌گیرد</h3>
+          <p class="principle__text">پارتیزان به‌دنبال نبرد زرهی نیست. خودروی آفرود آن سبک، سریع و قابل تعمیر در میدان است. زره سنگین در کوچه‌های تنگ و مسیرهای باریک یک ضعف است؛ تحرک یک مزیت. پارتیزان با خودروهایی مجهز به سیستم‌های ارتباطی، دوربین‌های دید در شب، وینچ بازیابی و قابلیت حمل تیم‌های کوچک وارد عمل می‌شود؛ خودروهایی که برای «واکنش سریع و نفوذ عمیق» طراحی شده‌اند، نه برای مقاومت در برابر آتش سنگین.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle__num">II</span>
+          <h3 class="principle__title">«بزن و در رو» در مقیاس منطقه‌ای</h3>
+          <p class="principle__text">پارتیزان هرگز در یک منطقه ثابت نمی‌ماند. هر عملیات دقیقه‌ها طول می‌کشد: ورود سریع، ضربه به یک نقطه حساس (نقطه تجمع، مسیر تدارکاتی، مرکز فرماندهی محلی)، و خروج فوری از مسیری متفاوت از مسیر ورود. این تاکتیک، دشمن را مجبور می‌کند برای هر تهدید احتمالی نیرو پراکنده کند و ابتکار عمل را از دست بدهد.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle__num">III</span>
+          <h3 class="principle__title">تسلط مطلق بر زمین</h3>
+          <p class="principle__text">برای پارتیزان، زمین فقط یک محیط نیست؛ یک سلاح است. هر راننده و هر اپراتور باید مسیرهای اصلی، کوچه‌های فرعی، مسیرهای خاکی، نقاط کور و راه‌های خروج اضطراری یک منطقه را مانند کف دست خود بشناسد. این شناخت، همان چیزی است که به پارتیزان اجازه می‌دهد در حالی که تعقیب‌کنندگان در ترافیک یا بن‌بست گیر کرده‌اند، «ناپدید» شود.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle__num">IV</span>
+          <h3 class="principle__title">استقلال عمل در سطح گروه</h3>
+          <p class="principle__text">واحدهای پارتیزان در قالب گروه‌های کوچک و خودکفا (معمولاً ۳ تا ۶ خودرو) عمل می‌کنند. هر گروه فرمانده خود را دارد و بدون نیاز به دستور لحظه‌به‌لحظه از مرکز، تصمیم تاکتیکی می‌گیرد. این ساختار تخت، سرعت واکنش را افزایش می‌دهد و از فروپاشی کل عملیات در صورت از دست رفتن ارتباط با یک گروه جلوگیری می‌کند.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle__num">V</span>
+          <h3 class="principle__title">هماهنگی، نه انزوا</h3>
+          <p class="principle__text">پارتیزان اگرچه مستقل عمل می‌کند، اما هرگز از بستر عملیات مشترک جدا نمی‌شود. ارتباط مداوم با فرماندهی، تبادل اطلاعات لحظه‌ای با سایر یگان‌ها و هماهنگی برای پرهیز از برخورد مسیرها، بخشی جدایی‌ناپذیر از هر مأموریت است. پارتیزان «نیروی ضربه» است، اما «نیروی تثبیت» پس از آن، وظیفه سایر ارگان‌هاست.</p>
+        </article>
+
+      </div>
+
+      <h3 class="sec-head__title" style="font-size:1.15rem;margin-bottom:24px" data-reveal>اصول عملکرد روزمره</h3>
 
       <div class="doclist" data-reveal>
 
@@ -1634,9 +2010,9 @@ img{max-width:100%;display:block}
   </section>
 
   <!-- =========================================================
-       06 — TRAINING
+       06 — OPERATIONS (NEW)
        ========================================================= -->
-  <section class="section" id="training">
+  <section class="section" id="operations">
     <span class="ghost" aria-hidden="true">06</span>
     <div class="container">
 
@@ -1644,12 +2020,80 @@ img{max-width:100%;display:block}
         <p class="sec-head__kicker">
           <span class="num">۰۶</span>
           <span class="rule"></span>
+          <span>نمونه یک عملیات</span>
+        </p>
+        <div class="sec-head__row">
+          <h2 class="sec-head__title">یک عملیات کامل پارتیزان چگونه اجرا می‌شود؟</h2>
+          <p class="sec-head__lede">
+            پارتیزان در خلأ عمل نمی‌کند؛ بخشی از یک زنجیرهٔ عملیاتی مشترک با سایر ارگان‌های نظامی است. مراحل زیر نشان می‌دهد که یک عملیات کامل — از اطلاعات تا خروج — چگونه شکل می‌گیرد.
+          </p>
+        </div>
+      </header>
+
+      <div class="timeline" data-reveal>
+
+        <div class="tl">
+          <span class="tl__dot" aria-hidden="true"></span>
+          <p class="tl__phase">فاز ۰۱ — اطلاعات</p>
+          <h3 class="tl__title">شناسایی و طراحی مسیر</h3>
+          <p class="tl__text">یگان‌های اطلاعاتی CERBERUS موقعیت نقاط تجمع سرکردگان، مسیرهای تدارکاتی و الگوی تحرک آن‌ها را شناسایی می‌کنند. پارتیزان بر اساس این اطلاعات، مسیرهای ورود و خروج خود را طراحی می‌کند — مسیرهایی که در نقشه‌های معمولی وجود ندارند.</p>
+        </div>
+
+        <div class="tl">
+          <span class="tl__dot" aria-hidden="true"></span>
+          <p class="tl__phase">فاز ۰۲ — ورود</p>
+          <h3 class="tl__title">نفوذ از مسیرهای فرعی</h3>
+          <p class="tl__text">گروه‌های پارتیزان سوار بر خودروهای آفرود، از مسیرهای فرعی و خاکی که در نقشه‌های معمولی وجود ندارد، به حاشیه منطقه نفوذ می‌کنند. در این فاز، سکوت ارتباطی و پرهیز از تماس با عناصر مسلح، حیاتی است.</p>
+        </div>
+
+        <div class="tl">
+          <span class="tl__dot" aria-hidden="true"></span>
+          <p class="tl__phase">فاز ۰۳ — ضربه</p>
+          <h3 class="tl__title">ضربه کوتاه و غافلگیرانه</h3>
+          <p class="tl__text">همزمان با استقرار نیروهای کلاسیک در نقاط از پیش تعیین‌شده برای «قفل کردن» مسیرهای اصلی، پارتیزان به یک یا دو نقطه حساس — مثلاً یک انبار سلاح محلی یا محل تجمع سرکردگان — ضربه می‌زند و بلافاصله عقب می‌نشیند. هیچ درگیری طولانی‌ای پذیرفته نمی‌شود.</p>
+        </div>
+
+        <div class="tl">
+          <span class="tl__dot" aria-hidden="true"></span>
+          <p class="tl__phase">فاز ۰۴ — تثبیت</p>
+          <h3 class="tl__title">ورود نیروهای تثبیت‌کننده</h3>
+          <p class="tl__text">با ایجاد اختلال در ساختار فرماندهی و تحرک عناصر مسلح، نیروهای کلاسیک و پلیس وارد عمل می‌شوند و کنترل منطقه را به‌تدریج بازمی‌گردانند. پارتیزان در این مرحله نقش پشتیبانی متحرک را دارد و در صورت نیاز، به نقاطی که مقاومت باقی مانده است، ضربه دوم را وارد می‌کند.</p>
+        </div>
+
+        <div class="tl">
+          <span class="tl__dot" aria-hidden="true"></span>
+          <p class="tl__phase">فاز ۰۵ — خروج</p>
+          <h3 class="tl__title">عقب‌نشینی و بازآرایی</h3>
+          <p class="tl__text">پس از تثبیت نسبی، پارتیزان منطقه را ترک می‌کند و برای واکنش به بحران بعدی در حالت آماده‌باش قرار می‌گیرد. هیچ یگانی برای مدت طولانی در یک منطقه نمی‌ماند؛ هر گروه پس از خروج، مسیر متفاوتی از مسیر ورود را برای بازگشت انتخاب می‌کند.</p>
+        </div>
+
+      </div>
+
+      <p class="callout" data-reveal>
+        <strong>نکته برای بازیکن</strong>
+        خودروی شما یک «تانک» نیست. اگر در یک نقطه متوقف شوید و درگیر یک نبرد طولانی شوید، مزیت خود را از دست داده‌اید. قدرت شما در حرکت است، نه در ایستادن. هر عملیات باید با «ورود سریع، ضربه دقیق، خروج فوری» به پایان برسد.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       07 — TRAINING
+       ========================================================= -->
+  <section class="section section--alt" id="training">
+    <span class="ghost" aria-hidden="true">07</span>
+    <div class="container">
+
+      <header class="sec-head" data-reveal>
+        <p class="sec-head__kicker">
+          <span class="num">۰۷</span>
+          <span class="rule"></span>
           <span>آموزش و آمادگی</span>
         </p>
         <div class="sec-head__row">
           <h2 class="sec-head__title">آموزش، آمادگی و توسعه مهارت</h2>
           <p class="sec-head__lede">
-            برنامه آموزشی پیشنهادی دویژن در چهار دسته موضوعی و در سطح عمومی، سازمانی و ایمنی؛ بر آشنایی ساختاری، هماهنگی تیمی و نگهداری صحیح تجهیزات تمرکز دارد.
+            برنامه آموزشی دویژن در چهار دسته موضوعی و با تمرکز بر شناخت ساختاری، هماهنگی بین‌نیرویی، رانندگی آفرود و نگهداری صحیح تجهیزات برگزار می‌شود.
           </p>
         </div>
       </header>
@@ -1663,6 +2107,7 @@ img{max-width:100%;display:block}
           </div>
           <ul class="tgroup__list">
             <li>آشنایی با ساختار <span dir="ltr">CERBERUS</span> و جایگاه دویژن <span dir="ltr">PARTIZAN</span> در آن.</li>
+            <li>شناخت مفهوم «ساید منفی» و تفاوت آن با مناطق عادی.</li>
             <li>شناخت مسئولیت‌ها و حدود اختیارات هر جایگاه سازمانی.</li>
           </ul>
         </div>
@@ -1674,6 +2119,7 @@ img{max-width:100%;display:block}
           </div>
           <ul class="tgroup__list">
             <li>آموزش ارتباطات سازمانی و اصول انتقال دقیق اطلاعات.</li>
+            <li>تمرین هماهنگی لحظه‌ای با نیروهای کلاسیک و پلیس در عملیات مشترک.</li>
             <li>تمرین هماهنگی تیمی و اجرای وظایف مشترک در تمرین‌های دوره‌ای.</li>
           </ul>
         </div>
@@ -1681,11 +2127,12 @@ img{max-width:100%;display:block}
         <div class="tgroup">
           <div class="tgroup__head">
             <span class="tgroup__roman">III</span>
-            <h3 class="tgroup__title">نگهداری و فنی</h3>
+            <h3 class="tgroup__title">نگهداری و رانندگی</h3>
           </div>
           <ul class="tgroup__list">
-            <li>آشنایی با اصول نگهداری تجهیزات و ثبت نقص‌های فنی.</li>
+            <li>آشنایی با اصول نگهداری خودروهای آفرود و ثبت نقص‌های فنی.</li>
             <li>مهارت‌های رانندگی ایمن و آفرود در مسیرهای دشوار.</li>
+            <li>تمرین تردد در کوچه‌های باریک و معابر پر از موانع شهری.</li>
           </ul>
         </div>
 
@@ -1707,15 +2154,15 @@ img{max-width:100%;display:block}
   </section>
 
   <!-- =========================================================
-       07 — BYLAW
+       08 — BYLAW
        ========================================================= -->
-  <section class="section section--alt" id="regulations">
-    <span class="ghost" aria-hidden="true">07</span>
+  <section class="section" id="regulations">
+    <span class="ghost" aria-hidden="true">08</span>
     <div class="container">
 
       <header class="sec-head" data-reveal>
         <p class="sec-head__kicker">
-          <span class="num">۰۷</span>
+          <span class="num">۰۸</span>
           <span class="rule"></span>
           <span>آیین‌نامه</span>
         </p>
@@ -1749,7 +2196,7 @@ img{max-width:100%;display:block}
           <div class="chapter__body">
             <article class="article">
               <span class="article__no">ماده ۱.</span>
-              <p class="article__text">دویژن پارتیزان یکی از بخش‌های تخصصی سازمان <span dir="ltr">CERBERUS</span> است و فعالیت آن در چارچوب ساختار فرماندهی سازمان مادر انجام می‌شود.</p>
+              <p class="article__text">دویژن پارتیزان یگان واکنش سریع و ضربتی سازمان <span dir="ltr">CERBERUS</span> برای کنترل بحران در «ساید منفی» است و فعالیت آن در چارچوب ساختار فرماندهی سازمان مادر انجام می‌شود.</p>
             </article>
             <article class="article">
               <span class="article__no">ماده ۲.</span>
@@ -1819,8 +2266,8 @@ img{max-width:100%;display:block}
             <span class="chapter__mark" aria-hidden="true"></span>
           </summary>
           <div class="chapter__body">
-            <article class="article"><span class="article__no">ماده ۱۷.</span><p class="article__text">استفاده از خودروها و تجهیزات باید متناسب با مأموریت و مقررات سازمان باشد.</p></article>
-            <article class="article"><span class="article__no">ماده ۱۸.</span><p class="article__text">وضعیت فنی تجهیزات باید به‌صورت دوره‌ای بررسی شود.</p></article>
+            <article class="article"><span class="article__no">ماده ۱۷.</span><p class="article__text">استفاده از خودروهای آفرود و تجهیزات باید متناسب با مأموریت و مقررات سازمان باشد.</p></article>
+            <article class="article"><span class="article__no">ماده ۱۸.</span><p class="article__text">وضعیت فنی خودروها و تجهیزات باید به‌صورت دوره‌ای بررسی شود.</p></article>
             <article class="article"><span class="article__no">ماده ۱۹.</span><p class="article__text">آسیب، نقص یا فقدان تجهیزات باید در اسرع وقت گزارش شود.</p></article>
             <article class="article"><span class="article__no">ماده ۲۰.</span><p class="article__text">نگهداری صحیح از دارایی‌های سازمانی مسئولیت تمامی استفاده‌کنندگان است.</p></article>
           </div>
@@ -1835,7 +2282,7 @@ img{max-width:100%;display:block}
           </summary>
           <div class="chapter__body">
             <article class="article"><span class="article__no">ماده ۲۱.</span><p class="article__text">پیام‌های سازمانی باید روشن، مختصر و مرتبط با موضوع باشند.</p></article>
-            <article class="article"><span class="article__no">ماده ۲۲.</span><p class="article__text">اطلاعات مهم باید از مسیرهای ارتباطی تعیین‌شده منتقل شوند.</p></article>
+            <article class="article"><span class="article__no">ماده ۲۲.</span><p class="article__text">اطلاعات مهم باید از مسیرهای ارتباطی تعیین‌شده و با هماهنگی سایر ارگان‌ها منتقل شوند.</p></article>
             <article class="article"><span class="article__no">ماده ۲۳.</span><p class="article__text">گزارش مأموریت باید تا حد امکان دقیق، منظم و قابل پیگیری باشد.</p></article>
             <article class="article"><span class="article__no">ماده ۲۴.</span><p class="article__text">انتشار اطلاعات نادرست یا گزارش‌سازی عمدی تخلف محسوب می‌شود.</p></article>
           </div>
@@ -1844,13 +2291,13 @@ img{max-width:100%;display:block}
         <details class="chapter">
           <summary class="chapter__head">
             <span class="chapter__index">فصل هفتم</span>
-            <span class="chapter__title">پشتیبانی و هماهنگی</span>
+            <span class="chapter__title">پشتیبانی و هماهنگی بین‌نیرویی</span>
             <span class="chapter__count">۴ ماده</span>
             <span class="chapter__mark" aria-hidden="true"></span>
           </summary>
           <div class="chapter__body">
             <article class="article"><span class="article__no">ماده ۲۵.</span><p class="article__text">برنامه‌ریزی منابع باید متناسب با نیازهای واقعی و اولویت‌های تعیین‌شده انجام شود.</p></article>
-            <article class="article"><span class="article__no">ماده ۲۶.</span><p class="article__text">واحدهای تخصصی موظف‌اند در محدوده مسئولیت خود با یکدیگر همکاری کنند.</p></article>
+            <article class="article"><span class="article__no">ماده ۲۶.</span><p class="article__text">واحدهای تخصصی موظف‌اند در محدوده مسئولیت خود با یکدیگر و با سایر ارگان‌های نظامی همکاری کنند.</p></article>
             <article class="article"><span class="article__no">ماده ۲۷.</span><p class="article__text">مشکلات اجرایی و کمبود منابع باید به مسئول مربوط گزارش شوند.</p></article>
             <article class="article"><span class="article__no">ماده ۲۸.</span><p class="article__text">تصمیم‌های مرتبط با منابع و تجهیزات باید قابل پیگیری باشند.</p></article>
           </div>
@@ -1876,25 +2323,52 @@ img{max-width:100%;display:block}
   </section>
 
   <!-- =========================================================
-       08 — STANDARDS
+       09 — STANDARDS
        ========================================================= -->
-  <section class="section" id="standards">
-    <span class="ghost" aria-hidden="true">08</span>
+  <section class="section section--alt" id="standards">
+    <span class="ghost" aria-hidden="true">09</span>
     <div class="container">
 
       <header class="sec-head" data-reveal>
         <p class="sec-head__kicker">
-          <span class="num">۰۸</span>
+          <span class="num">۰۹</span>
           <span class="rule"></span>
           <span>استانداردهای عملیاتی</span>
         </p>
         <div class="sec-head__row">
           <h2 class="sec-head__title">استانداردهای تحرک و ناوگان</h2>
           <p class="sec-head__lede">
-            رعایت این استانداردها برای حفظ آمادگی ناوگان، ایمنی نیروها و نظم اجرایی دویژن الزامی است. این بخش برای تکمیل با اطلاعات فنی تأییدشده در آینده قابل ویرایش است.
+            خودروی آفرود پارتیزان یک وسیله نقلیه معمولی نیست؛ یک «سکوی ضربه» است. استانداردهای زیر برای حفظ آمادگی ناوگان، ایمنی نیروها و نظم اجرایی دویژن الزامی است.
           </p>
         </div>
       </header>
+
+      <div class="specs" data-reveal aria-label="مشخصات کلیدی خودروی آفرود">
+        <div class="specs__cell">
+          <span class="specs__label">نوع خودرو</span>
+          <span class="specs__value">آفرود سبک / واکنش سریع</span>
+        </div>
+        <div class="specs__cell">
+          <span class="specs__label">اولویت طراحی</span>
+          <span class="specs__value">سرعت و چابکی، نه زره سنگین</span>
+        </div>
+        <div class="specs__cell">
+          <span class="specs__label">ظرفیت</span>
+          <span class="specs__value">یک گروه ضربت کوچک + تجهیزات</span>
+        </div>
+        <div class="specs__cell">
+          <span class="specs__label">قابلیت عبور</span>
+          <span class="specs__value">مسیر خاکی، شیب، کوچه باریک</span>
+        </div>
+        <div class="specs__cell">
+          <span class="specs__label">تجهیزات کلیدی</span>
+          <span class="specs__value">ارتباطی، دید در شب، وینچ بازیابی</span>
+        </div>
+        <div class="specs__cell">
+          <span class="specs__label">تعمیر در میدان</span>
+          <span class="specs__value">ابزار سریع، بدون نیاز به یدک‌کش</span>
+        </div>
+      </div>
 
       <div class="doclist" data-reveal>
 
@@ -1918,7 +2392,7 @@ img{max-width:100%;display:block}
           <span class="doclist__num">۰۳</span>
           <div>
             <h3 class="doclist__title">انتخاب وسیله متناسب با مسیر و مأموریت</h3>
-            <p class="doclist__text">انتخاب خودرو بر اساس نوع مسیر، حجم تجهیزات و نیاز مأموریت انجام می‌شود.</p>
+            <p class="doclist__text">انتخاب خودرو بر اساس نوع مسیر (شهری/خاکی/حاشیه‌ای)، حجم تجهیزات و نیاز مأموریت انجام می‌شود.</p>
           </div>
         </div>
 
@@ -1963,26 +2437,32 @@ img{max-width:100%;display:block}
         </div>
 
       </div>
+
+      <p class="callout" data-reveal>
+        <strong>اصل بنیادین ناوگان پارتیزان</strong>
+        خودروی شما یک «تانک» نیست. اگر در یک نقطه متوقف شوید و درگیر یک نبرد طولانی شوید، مزیت خود را از دست داده‌اید. قدرت شما در حرکت است، نه در ایستادن.
+      </p>
+
     </div>
   </section>
 
   <!-- =========================================================
-       09 — COMMUNICATION
+       10 — COMMUNICATION
        ========================================================= -->
-  <section class="section section--alt" id="communication">
-    <span class="ghost" aria-hidden="true">09</span>
+  <section class="section" id="communication">
+    <span class="ghost" aria-hidden="true">10</span>
     <div class="container">
 
       <header class="sec-head" data-reveal>
         <p class="sec-head__kicker">
-          <span class="num">۰۹</span>
+          <span class="num">۱۰</span>
           <span class="rule"></span>
           <span>نظم ارتباطی</span>
         </p>
         <div class="sec-head__row">
           <h2 class="sec-head__title">نظم ارتباطی</h2>
           <p class="sec-head__lede">
-            نظم ارتباطی، پایه هماهنگی میان اعضا و فرماندهان است. انتقال دقیق اطلاعات از کانال مناسب، از بروز خطا و دوباره‌کاری جلوگیری می‌کند.
+            نظم ارتباطی، پایه هماهنگی میان اعضا، فرماندهان و سایر ارگان‌های نظامی است. انتقال دقیق اطلاعات از کانال مناسب، از بروز خطا و دوباره‌کاری جلوگیری می‌کند.
           </p>
         </div>
       </header>
@@ -1995,27 +2475,28 @@ img{max-width:100%;display:block}
         <div class="doclist__item"><span class="doclist__num">۰۵</span><div><p class="doclist__text">ثبت اطلاعات مهم به‌گونه‌ای که قابل پیگیری و بازبینی باشد.</p></div></div>
         <div class="doclist__item"><span class="doclist__num">۰۶</span><div><p class="doclist__text">گزارش سریع مشکلات مرتبط با مأموریت به مسئول مربوط.</p></div></div>
         <div class="doclist__item"><span class="doclist__num">۰۷</span><div><p class="doclist__text">رعایت مقررات دسترسی به اطلاعات در تمام ارتباطات سازمانی.</p></div></div>
+        <div class="doclist__item"><span class="doclist__num">۰۸</span><div><p class="doclist__text">حفظ هماهنگی لحظه‌ای با سایر ارگان‌های نظامی در عملیات مشترک.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       10 — LOGISTICS
+       11 — LOGISTICS
        ========================================================= -->
-  <section class="section" id="logistics">
-    <span class="ghost" aria-hidden="true">10</span>
+  <section class="section section--alt" id="logistics">
+    <span class="ghost" aria-hidden="true">11</span>
     <div class="container">
 
       <header class="sec-head" data-reveal>
         <p class="sec-head__kicker">
-          <span class="num">۱۰</span>
+          <span class="num">۱۱</span>
           <span class="rule"></span>
           <span>پشتیبانی</span>
         </p>
         <div class="sec-head__row">
           <h2 class="sec-head__title">پشتیبانی و آمادگی سازمانی</h2>
           <p class="sec-head__lede">
-            پشتیبانی اجرایی، تداوم فعالیت واحدها را تضمین می‌کند. مدیریت منظم تجهیزات و ثبت دقیق سوابق، بخشی از مسئولیت‌های روزمره دویژن است.
+            پشتیبانی اجرایی، تداوم فعالیت گروه‌های ضربتی را تضمین می‌کند. مدیریت منظم تجهیزات، سوخت و مهمات سبک بخشی از مسئولیت‌های روزمره دویژن است.
           </p>
         </div>
       </header>
@@ -2032,15 +2513,15 @@ img{max-width:100%;display:block}
   </section>
 
   <!-- =========================================================
-       11 — DISCIPLINE
+       12 — DISCIPLINE
        ========================================================= -->
-  <section class="section section--alt" id="discipline">
-    <span class="ghost" aria-hidden="true">11</span>
+  <section class="section" id="discipline">
+    <span class="ghost" aria-hidden="true">12</span>
     <div class="container">
 
       <header class="sec-head" data-reveal>
         <p class="sec-head__kicker">
-          <span class="num">۱۱</span>
+          <span class="num">۱۲</span>
           <span class="rule"></span>
           <span>انضباط و عملکرد</span>
         </p>
@@ -2065,15 +2546,15 @@ img{max-width:100%;display:block}
   </section>
 
   <!-- =========================================================
-       12 — ETHICS
+       13 — ETHICS
        ========================================================= -->
-  <section class="section" id="ethics">
-    <span class="ghost" aria-hidden="true">12</span>
+  <section class="section section--alt" id="ethics">
+    <span class="ghost" aria-hidden="true">13</span>
     <div class="container">
 
       <header class="sec-head" data-reveal>
         <p class="sec-head__kicker">
-          <span class="num">۱۲</span>
+          <span class="num">۱۳</span>
           <span class="rule"></span>
           <span>منشور اخلاقی</span>
         </p>
@@ -2139,9 +2620,9 @@ img{max-width:100%;display:block}
       </span>
       <p class="footer__parent" dir="ltr">CERBERUS</p>
       <p class="footer__name" dir="ltr">PARTIZAN DIVISION</p>
-      <p class="footer__sub" dir="ltr">SPECIAL OPERATIONS DIVISION</p>
+      <p class="footer__sub" dir="ltr">RAPID RESPONSE DIVISION</p>
       <p class="footer__desc">
-        دویژن پارتیزان، دویژن تخصصی سازمان <span dir="ltr">CERBERUS</span> است و در چارچوب ساختار فرماندهی سازمان مادر فعالیت می‌کند.
+        دویژن پارتیزان، یگان واکنش سریع و ضربتی سازمان <span dir="ltr">CERBERUS</span> برای کنترل بحران در «ساید منفی» است و در چارچوب ساختار فرماندهی سازمان مادر فعالیت می‌کند.
       </p>
     </div>
 
@@ -2153,7 +2634,8 @@ img{max-width:100%;display:block}
         <li><a href="#missions">مأموریت‌ها</a></li>
         <li><a href="#command">ساختار فرماندهی</a></li>
         <li><a href="#units">واحدهای تخصصی</a></li>
-        <li><a href="#doctrine">اصول عملکرد</a></li>
+        <li><a href="#doctrine">دکترین عملیاتی</a></li>
+        <li><a href="#operations">نمونه یک عملیات</a></li>
       </ul>
     </nav>
 
@@ -2165,6 +2647,7 @@ img{max-width:100%;display:block}
         <li><a href="#standards">استانداردهای ناوگان</a></li>
         <li><a href="#communication">نظم ارتباطی</a></li>
         <li><a href="#logistics">پشتیبانی</a></li>
+        <li><a href="#discipline">انضباط و عملکرد</a></li>
         <li><a href="#ethics">منشور اخلاقی</a></li>
       </ul>
     </nav>
